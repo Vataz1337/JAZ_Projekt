@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Games</title>
+<!--    #<link rel="stylesheet" th:href="@{/style.css}">-->
+</head>
+<body>
+<table>
+    <tbody>
+    <tr th:each="game: ${game}">
+        <td th:text="${game.id}"></td>
+        <td th:text="${game.name}"></td>
+        <td th:text="${game.genre}"></td>
+        <td th:text="${game.price}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+<!--<footer th:insert="links.html"></footer>-->
+</html>
