@@ -3,8 +3,7 @@ package pl.pjatk.backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.pjatk.backend.model.Game;
 import pl.pjatk.backend.service.GameService;
 
@@ -25,8 +24,17 @@ public class GameController {
         return new ResponseEntity<>(games, HttpStatus.OK);
     }
 
-    //public ResponseEntity<List<Car>> getCars() {
-    //    List<Car> cars = carService.getCarsFromRepo();
-    //    return new ResponseEntity<>(cars, HttpStatus.OK);
-    //}
+    @GetMapping("/game/{id}")
+    public ResponseEntity<Game> getGame(@PathVariable long id) {
+        Game game = gameService.getGameFromRepo(id);
+
+        return new ResponseEntity<>(game, HttpStatus.OK);
+    }
+
+    @PostMapping("/game/add")
+    public ResponseEntity<Long> createGame(@RequestBody Game game) {
+        long createdId = gameService.insertGameIntoRepo(game);
+
+        return new ResponseEntity<>(createdId, HttpStatus.CREATED);
+    }
 }

@@ -8,11 +8,12 @@
 <body>
 <table>
     <tbody>
-    <tr th:each="game: ${game}">
+    <tr th:each="game: ${games}">
         <td th:text="${game.id}"></td>
         <td th:text="${game.name}"></td>
         <td th:text="${game.genre}"></td>
         <td th:text="${game.price}"></td>
+        <td th:text="${game.description}"></td>
     </tr>
     </tbody>
 </table>

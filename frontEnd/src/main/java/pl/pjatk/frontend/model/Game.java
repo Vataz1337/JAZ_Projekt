@@ -8,6 +8,7 @@ public class Game {
     private String name;
     private String genre;
     private int price;
+    private String description;
 
     public int getId() {
         return id;
@@ -25,6 +26,7 @@ public class Game {
         return price;
     }
 
-
-
+    public String getDescription() {
+        return description;
+    }
 }

@@ -19,6 +19,9 @@ public class Game {
     @Basic
     @Column(name = "price")
     private int price;
+    @Basic
+    @Column(name = "description")
+    private String description;
 
     public Long getId() {
         return id;
@@ -52,16 +55,24 @@ public class Game {
         this.price = price;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Game games = (Game) o;
-        return id == games.id && price == games.price && Objects.equals(name, games.name) && Objects.equals(genre, games.genre);
+        return Objects.equals(id, games.id) && price == games.price && Objects.equals(name, games.name) && Objects.equals(genre, games.genre) && Objects.equals(description, games.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, genre, price);
+        return Objects.hash(id, name, genre, price, description);
     }
 }
