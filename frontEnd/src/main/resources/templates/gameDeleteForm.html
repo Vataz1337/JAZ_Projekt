@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Game</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="buttonsContainer">
+        <table class="buttonsContainer">
+            <tr>
+                <div class="ui-button">
+                    <div><input type="button" onClick="window.location.href='http://localhost:8080/games'" value="ALL GAMES"></div>
+                </div>
+                <div class="ui-button">
+                    <div><input type="button" onClick="window.location.href='http://localhost:8080/games/rpg'" value="RPG GAMES"></div>
+                </div>
+                <div class="ui-button">
+                    <div><input type="button" onClick="window.location.href='http://localhost:8080/games/add'" value="ADD GAME"></div>
+                </div>
+            </tr>
+        </table>
+    </div>
+    <form action="#" method="post" th:action="@{/games/delete}" th:object="${game}">
+        <div class="table">
+            <table>
+                <tr>
+                    <td><label>Id</label></td>
+                    <td>
+                        <label>
+                        <input type="number" th:field="${game.id}">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="submit"></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+</body>
+<!--<footer th:insert="links.html"></footer>-->
+</html>

@@ -6,8 +6,8 @@ import java.util.Objects;
 @Entity
 @Table(name="game", schema = "projektjaz")
 public class Game {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Basic
@@ -22,6 +22,15 @@ public class Game {
     @Basic
     @Column(name = "description")
     private String description;
+
+//    public Game(){}
+//    public Game(Long id, String name, String genre, int price, String description) {
+//        this.id = id;
+//        this.name = name;
+//        this.genre = genre;
+//        this.price = price;
+//        this.description = description;
+//    }
 
     public Long getId() {
         return id;

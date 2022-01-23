@@ -2,57 +2,82 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
 <head>
     <meta charset="UTF-8">
-    <title>Add car</title>
-<!--    <link rel="stylesheet" th:href="@{/style.css}">-->
+    <title>Add Game</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-<form action="#" method="post" th:action="@{/games/add}" th:object="${game}">
-    <table>
-        <tr>
-            <td><label>Id</label></td>
-            <td>
-                <label>
-                <input type="number" th:field="${game.id}">
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td><label>Name</label></td>
-            <td>
-                <label>
-                <input type="text" th:field="${game.name}">
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td><label>Genre</label></td>
-            <td>
-                <label>
-                <input type="text" th:field="${game.genre}">
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td><label>Price</label></td>
-            <td>
-                <label>
-                <input type="text" th:field="${game.price}">
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td><label>Description</label></td>
-            <td>
-                <label>
-                <input type="text" th:field="${game.description}">
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="submit"></td>
-        </tr>
-    </table>
-</form>
+<div class="container">
+    <div class="buttonsContainer">
+        <table class="buttonsContainer">
+            <tr>
+            <div class="ui-button">
+                <div><input type="button" onClick="window.location.href='http://localhost:8080/games/'" value="ALL GAMES"></div>
+            </div>
+            <div class="ui-button">
+                <div><input type="button" onClick="window.location.href='http://localhost:8080/games/rpg'" value="RPG GAMES"></div>
+            </div>
+            <div class="ui-button">
+                <div><input type="button" onClick="window.location.href='http://localhost:8080/games/delete'" value="DELETE GAME"></div>
+            </div>
+            </tr>
+        </table>
+    </div>
+    <form action="#" method="post" th:action="@{/games/add}" th:object="${game}">
+        <div class="table">
+            <table>
+                <tr>
+                    <td><label>Id</label></td>
+                    <td>
+                        <label>
+                        <input type="number" th:field="${game.id}">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Name</label></td>
+                    <td>
+                        <label>
+                        <input type="text" th:field="${game.name}" required>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Genre</label></td>
+                    <td>
+                        <label>
+    <!--                    <input type="text" th:field="${game.genre}" required>-->
+                            <select name="genres" th:field="${game.genre}" multiple>
+                                <option value="RPG">RPG</option>
+                                <option value="FPS">FPS</option>
+                                <option value="MOBA">MOBA</option>
+                                <option value="STRATEGY">STRATEGY</option>
+                            </select>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Price</label></td>
+                    <td>
+                        <label>
+                        <input type="number" th:field="${game.price}" required>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Description</label></td>
+                    <td>
+                        <label>
+                        <input type="text" th:field="${game.description}">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="submit"></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
 </body>
 <!--<footer th:insert="links.html"></footer>-->
 </html>

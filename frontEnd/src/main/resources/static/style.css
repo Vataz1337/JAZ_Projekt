@@ -1,0 +1,51 @@
+.container{
+    height: 80%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+    margin-bottom: 5%;
+    text-align: center;
+    background: coral;
+}
+.buttonsContainer{
+    width: 100%;
+    text-align: center;
+    background: aqua;
+}
+.ui-button{
+    float: left;
+    height: 10%;
+    width: 33%;
+}
+.ui-button input{
+    background-color: darkcyan;
+    width: 10em;
+    height: 5em;
+    font-size: 100%;
+    border-radius: 3px;
+    border: none;
+    color: steelblue;
+    transition: 0.1s;
+}
+.ui-button input:hover{
+    -webkit-box-shadow: 0 0 5px 2px rgba(0,0,0,7);
+    box-shadow: 0 0 5px 2px rgba(0,0,0,7);
+    cursor: pointer;
+    color: black;
+    transform: scale(1.05);
+    z-index: 3;
+}
+.table table, th, td{
+    border:1px solid pink;
+    color: brown;
+}
+
+.table table{
+    width: 100%;
+    background: blue;
+}
+.table{
+    text-align: center;
+}
+

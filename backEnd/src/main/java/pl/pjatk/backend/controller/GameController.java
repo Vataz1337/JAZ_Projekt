@@ -24,6 +24,12 @@ public class GameController {
         return new ResponseEntity<>(games, HttpStatus.OK);
     }
 
+    @GetMapping("/games/rpg")
+    public ResponseEntity<List<Game>> getRpgGames(){
+        List<Game> rpgGames = gameService.getRPGGamesFromRepo();
+        return new ResponseEntity<>(rpgGames, HttpStatus.OK);
+    }
+
     @GetMapping("/game/{id}")
     public ResponseEntity<Game> getGame(@PathVariable long id) {
         Game game = gameService.getGameFromRepo(id);
@@ -37,4 +43,18 @@ public class GameController {
 
         return new ResponseEntity<>(createdId, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/game/delete/{id}")
+    public ResponseEntity<Long> deleteGame(@PathVariable Long id) {
+        long deletedId = gameService.removeGameFromRepo(id);
+
+        return new ResponseEntity<>(deletedId, HttpStatus.OK);
+    }
+
+//    @PutMapping("/game/update")
+//    public ResponseEntity<Long> updateGame(@RequestBody Game game) {
+//        long updatedId = gameService.updateGameInRepo(game);
+//
+//        return new ResponseEntity<>(updatedId, HttpStatus.OK);
+//    }
 }
